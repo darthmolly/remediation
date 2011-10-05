@@ -53,7 +53,7 @@ Log into your web server, go to the appropriate place in the filesystem for stor
 <pre>
 	ssh blue.unix.virginia.edu
 	cd /web/www.virginia.edu/doc_ssl/my_site
-	CLONE COMMAND
+	git clone git://github.com/darthmolly/remediation.git
 </pre>
 
 h3. Application configuration
