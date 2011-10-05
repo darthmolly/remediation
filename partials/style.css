@@ -1,0 +1,20 @@
+body {
+	font-family: verdana, arial, helvetica, sans-serif;
+	margin:0;
+	padding:0;
+    font-size:.8em;
+    color: #000;       
+    background-color:#fff;
+}
+h2 {
+	margin:0;
+	padding:20px;
+	background-color:#4682B4;
+	color: #fff;
+}
+h3 {
+	padding-left:20px;
+}
+#content {
+	padding-left:20px;
+}

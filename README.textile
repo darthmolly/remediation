@@ -1,0 +1,79 @@
+h1. Remediation
+
+h2. Introduction and Installation Instructions
+
+This application is designed to help LSPs track compliance with tasks assigned to their users, such as SSN Remediation.  An LSP installs the application, configures the list of users that need to complete the task, and then notifies the users.  Users complete the task, and then access this application to record compliance.  LSPs may use an administrative interface to view progress.
+
+h3. System Requirements
+
+The following components are needed to run this application:
+
+1. Apache web server
+2. PHP running on the web server
+3. PHP configured to use mysqli
+4. PHP configured to use LDAP (not strictly necessary, but it makes it nicer)
+5. Apache configured to use NetBadge
+6. A MySQL database server that the web server may query
+
+h3. MySQL database installation
+
+Create a database (or use one you already have) on your MySQL server, then create the users and the administrators table in that database.  You may do this with the mysql command line interface from a unix prompt
+
+<pre>
+	mysql -u user_name -h database_host -p
+	(enter your user's database password)
+	use database_name
+	CREATE TABLE users (computing_id VARCHAR(255), completion_date DATE NOT NULL, PRIMARY KEY(computing_id));
+	CREATE TABLE administrators (computing_id VARCHAR(255), PRIMARY KEY(computing_id));
+</pre>
+
+h3. Loading users into the database
+
+Insert the users who need to complete the task into the users table.  There are lots of ways to do this, but here's an example using the mysql command line interface.  Be sure to include yourself in the list of users so that you may verify that things are working correctly.
+
+<pre>
+	mysql -u username -h database_host -p
+	(enter your user's database password)
+	use database_name
+	INSERT INTO users(computing_id) VALUES("mst3k");
+	INSERT INTO users(computing_id) VALUES("abc2d");
+	INSERT INTO users(computing_id) VALUES("xyz3e");
+</pre>
+
+Add any administrators you'd like to the administrators table (administrators can view the status for everyone):
+
+<pre>
+	INSERT INTO administrators(computing_id) VALUES("mst3k");
+</pre>
+
+h3. Application Installation
+
+Log into your web server, go to the appropriate place in the filesystem for storing SSL content, and clone the application:
+
+<pre>
+	ssh blue.unix.virginia.edu
+	cd /web/www.virginia.edu/doc_ssl/my_site
+	CLONE COMMAND
+</pre>
+
+h3. Application configuration
+
+At a minimum, you will need to adjust the settings in inc/configs.inc.php to include your database information.  Edit those on your web server with the appropriate settings.
+
+You should now be able to access your application via a web browser, for example:
+
+https://www.virginia.edu/my_site/remediate
+
+Note the "s" on https!  If NetBadge is correctly enabled, you should see NetBadge authorization occur.  If you get a message that says "Unable to locate user record.", that means you forgot to put your own computing id into the database (doh!)
+
+h3. Tweaking the verbiage or style
+
+Now that your application is up and running, you will almost certainly want to update the default verbiage.  The relevant files are in the "partials" directory of your application.  In there you will find:
+
+1.  header.inc.php - the header at the top of the page
+2.  incomplete.inc.php - the text someone sees if they haven't completed the process
+3.  complete.inc.php - the text someone sees if they have already completed the process
+4.  done.inc.php - the text someone sees right after they complete the process
+5.  footer.inc.php - the footer at the bottom of the page
+6.  style.css - a stylesheet for the app.  In case you want to get fancy or something.
+7.  users.inc.php - the administrative screen
