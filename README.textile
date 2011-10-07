@@ -83,12 +83,16 @@ At a minimum, you will need to adjust the settings in inc/configs.inc.php to inc
 to (where YOUR_DATABASE_SERVER is the actual information for your database server):
 
 <pre>
-"DATABASE_HOST"                 =>      "YOUR_DATABASE_SERVER",                            # your database server
+	"DATABASE_HOST"                 =>      "YOUR_DATABASE_SERVER",                            # your database server
 </pre>
 	
-You should now be able to access your application via a web browser.  You'll need to use the correct host name and directory information for your site:
+You should now be able to access your application via a web browser.  You'll need to use the correct host name and directory information for your site.  Be sure to swap out YOUR_WEBSERVER and YOUR_SUBDIRECTORY (if applicable):
 
-https://www.virginia.edu/my_site/remediate
+https://YOUR_WEB_SERVER/YOUR_SUBDIRECTORY/remediate
+
+For example
+
+https://www.virginia.edu/mydepartment/remediate
 
 Note the "s" on https!  If NetBadge is correctly enabled, you should see NetBadge authorization occur.  If you get a message that says "Unable to locate user record.", that means you forgot to put your own computing id into the database (doh!)
 
