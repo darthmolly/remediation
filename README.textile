@@ -17,24 +17,26 @@ The following components are needed to run this application:
 
 h3. MySQL database installation
 
-Create a database (or use one you already have) on your MySQL server, then create the users and the administrators table in that database.  You may do this with the mysql command line interface from a unix prompt
+Assuming you have a database set up on a MySQL server and that you have the credentials for accessing it (note: creating MySQL databases and accounts is outside of the scope of this documentation), create the users and the administrators table in that database.  You may do this with the mysql command line interface from a unix prompt.  Be sure to swap out YOUR_USERNAME, YOUR_DATABASE_SERVER, and YOUR_DATABASE_NAME with the actual values for your database.
 
 <pre>
-	mysql -u user_name -h database_host -p
+	mysql -u YOUR_USERNAME -h YOUR_DATABASE_SERVER -p
 	(enter your user's database password)
-	use database_name
+	use YOUR_DATABASE_NAME
 	CREATE TABLE users (computing_id VARCHAR(255), completion_date DATE NOT NULL, PRIMARY KEY(computing_id));
 	CREATE TABLE administrators (computing_id VARCHAR(255), PRIMARY KEY(computing_id));
 </pre>
 
 h3. Loading users into the database
 
-Insert the users who need to complete the task into the users table.  There are lots of ways to do this, but here's an example using the mysql command line interface.  Be sure to include yourself in the list of users so that you may verify that things are working correctly.
+Insert the users who need to complete the task into the users table.  There are lots of ways to do this, but here's an example using the mysql command line interface. Be sure to swap out YOUR_USERNAME, YOUR_DATABASE_SERVER, and YOUR_DATABASE_NAME with the actual values for your database.
+
+Note:  Include yourself in the list of users so that you may verify that things are working correctly.
 
 <pre>
-	mysql -u username -h database_host -p
+	mysql -u YOUR_USERNAME -h YOUR_DATABASE_SERVER -p
 	(enter your user's database password)
-	use database_name
+	use YOUR_DATABASE_NAME
 	INSERT INTO users(computing_id) VALUES("mst3k");
 	INSERT INTO users(computing_id) VALUES("abc2d");
 	INSERT INTO users(computing_id) VALUES("xyz3e");
@@ -62,19 +64,29 @@ Then use the mysqlimport command (be sure to swop out all of the uppercase value
 
 h3. Application Installation
 
-Log into your web server, go to the appropriate place in the filesystem for storing SSL content, and clone the application:
+Log into your web server, go to the appropriate place in the filesystem for storing SSL content, and clone the application.  Be sure to swap out YOUR_WEB_SERVER_HOST and YOUR_SSL_DIRECTORY with the actual values for your site.  Please note that this application uses NetBadge, which requires SSL, so the application will not work unless it is installed in an SSL directory on a NetBadge-enabled web server.
 
 <pre>
-	ssh blue.unix.virginia.edu
-	cd /web/www.virginia.edu/doc_ssl/my_site
+	ssh YOUR_WEB_SERVER_HOST  (e.g. - ssh blue.unix.virginia.edu)
+	cd YOUR_SSL_DIRECTORY (e.g. - cd /web/www.virginia.edu/doc/my_department)
 	git clone git://github.com/darthmolly/remediation.git
 </pre>
 
 h3. Application configuration
 
-At a minimum, you will need to adjust the settings in inc/configs.inc.php to include your database information.  Edit those on your web server with the appropriate settings.
+At a minimum, you will need to adjust the settings in inc/configs.inc.php to include your database information.  Edit the values in the first few lines in the parts after the => symbol.  For example, change:
 
-You should now be able to access your application via a web browser, for example:
+<pre>
+	"DATABASE_HOST"                 =>      "localhost",                            # your database server
+</pre>
+
+to (where YOUR_DATABASE_SERVER is the actual information for your database server):
+
+<pre>
+"DATABASE_HOST"                 =>      "YOUR_DATABASE_SERVER",                            # your database server
+<pre>
+	
+You should now be able to access your application via a web browser.  You'll need to use the correct host name and directory information for your site:
 
 https://www.virginia.edu/my_site/remediate
 
