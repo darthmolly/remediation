@@ -94,7 +94,7 @@ For example
 
 https://www.virginia.edu/mydepartment/remediate
 
-Note the "s" on https!  If NetBadge is correctly enabled, you should see NetBadge authorization occur.  If you get a message that says "Unable to locate user record.", that means you forgot to put your own computing id into the database (doh!)
+Note the "s" on https!  If NetBadge is correctly enabled, you should see NetBadge authorization occur.  If you get a message that says "We couldn't find your user record.", that means you forgot to put your own computing id into the database (doh!)
 
 h3. Tweaking the verbiage or style
 
