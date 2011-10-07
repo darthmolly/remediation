@@ -56,7 +56,7 @@ For batch loading large numbers of users, you can use the mysqlimport command.  
 	zyx3e
 </pre>
 
-Then use the mysqlimport command (be sure to swop out all of the uppercase values below with your real credentials):
+Then use the mysqlimport command (be sure to swap out all of the uppercase values below with your real credentials):
 
 <pre>
 	mysqlimport --columns=computing_id --local -u YOUR_USERNAME -h YOUR_DATABASE_SERVER -p YOUR_DATABASE_NAME users.txt
@@ -84,7 +84,7 @@ to (where YOUR_DATABASE_SERVER is the actual information for your database serve
 
 <pre>
 "DATABASE_HOST"                 =>      "YOUR_DATABASE_SERVER",                            # your database server
-<pre>
+</pre>
 	
 You should now be able to access your application via a web browser.  You'll need to use the correct host name and directory information for your site:
 
