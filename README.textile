@@ -104,6 +104,7 @@ Now that your application is up and running, you will almost certainly want to u
 2.  incomplete.inc.php - the text someone sees if they haven't completed the process
 3.  complete.inc.php - the text someone sees if they have already completed the process
 4.  done.inc.php - the text someone sees right after they complete the process
-5.  footer.inc.php - the footer at the bottom of the page
-6.  style.css - a stylesheet for the app.  In case you want to get fancy or something.
-7.  users.inc.php - the administrative screen
+5.  not_found.inc.php - the text someone sees if they have logged into the site but aren't in your users table
+6.  footer.inc.php - the footer at the bottom of the page
+7.  style.css - a stylesheet for the app.  In case you want to get fancy or something.
+8.  users.inc.php - the administrative screen
