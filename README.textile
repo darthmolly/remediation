@@ -46,6 +46,20 @@ Add any administrators you'd like to the administrators table (administrators ca
 	INSERT INTO administrators(computing_id) VALUES("mst3k");
 </pre>
 
+For batch loading large numbers of users, you can use the mysqlimport command.  First, create a file called "users.txt" on your machine that has all of your users in it, one per line.  For example:
+
+<pre>
+	mst3k
+	abc2d
+	zyx3e
+</pre>
+
+Then use the mysqlimport command (be sure to swop out all of the uppercase values below with your real credentials):
+
+<pre>
+	mysqlimport --columns=computing_id --local -u YOUR_USERNAME -h YOUR_DATABASE_SERVER -p YOUR_DATABASE_NAME users.txt
+</pre>
+
 h3. Application Installation
 
 Log into your web server, go to the appropriate place in the filesystem for storing SSL content, and clone the application:
