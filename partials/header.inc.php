@@ -10,5 +10,7 @@
   </head>
   <body>
 		<h2><?php print APPLICATION_NAME; ?></h2>
-		<h3><?php print $user->getFirstName(); ?> <?php print $user->getLastName(); ?> (<?php print $user->getComputingID();?>)</h3>
+		<?php if ($user) { ?>
+			<h3><?php print $user->getFirstName(); ?> <?php print $user->getLastName(); ?> (<?php print $user->getComputingID();?>)</h3>
+		<?php } ?>
 		<div id="content"><!-- begin #content -->

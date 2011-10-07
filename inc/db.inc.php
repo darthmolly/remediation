@@ -34,7 +34,7 @@ function getUser($computing_id) {
 	}
 	$stmt->close();
 	if (count($rows) == 0) {
-		die("Unable to locate user record.");
+		return false;
 	}
 	$user = $rows[0];
 	# determine if user is an administrator

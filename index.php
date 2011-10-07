@@ -6,7 +6,9 @@ include("partials/header.inc.php");
 ?>
 
 <?php
-if (isset($_POST["complete"])) {
+if (!$user) {
+	include("partials/not_found.inc.php");
+} else if (isset($_POST["complete"])) {
 	updateCompletionDate($user->getComputingId());
 	include("partials/done.inc.php");
 } else {
@@ -15,7 +17,7 @@ if (isset($_POST["complete"])) {
 ?>
 
 
-<?php if ($user->isAdministrator()) { ?>
+<?php if ($user && $user->isAdministrator()) { ?>
 	<p><a href="users.php">View All Users</a></p>
 <?php } ?>
 
