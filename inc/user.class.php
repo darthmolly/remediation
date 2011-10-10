@@ -1,9 +1,5 @@
 <?php
 class User {
-	//attributes
-	var $_computing_id;
-	var $_complete;
-	var $_administrator;
 	
 	function getComputingId() {
 		return $this->_computing_id;
@@ -29,6 +25,12 @@ class User {
 	function setLastName($last_name) {
 		$this->_last_name = $last_name;
 	}
+	function getEmail() {
+		return $this->_email;
+	}
+	function setEmail($email) {
+		$this->_email = $email;
+	}
 	function isAdministrator() {
 		return $this->_administrator;
 	}
@@ -47,11 +49,13 @@ class User {
 		if ($entries["count"] < 1) {
 			$this->setFirstName("");
 	    $this->setLastName("");
+			$this->setEmail("$userID@Virginia.EDU");
 			return;
 		}
 		$entry = $entries[0];
     $this->setFirstName($entry["givenname"][0]);
     $this->setLastName($entry["sn"][0]);
+		$this->setEmail($entry["mail"][0]);
 	}
 	
 	function User($computing_id, $completion_date) {

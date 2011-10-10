@@ -1,6 +1,7 @@
 <?php
 include_once("inc/configs.inc.php");
 include_once("inc/db.inc.php");
+include_once("inc/utils.inc.php");
 $user = getUser($_SERVER['PHP_AUTH_USER']);
 include("partials/header.inc.php"); 
 ?>
@@ -10,6 +11,8 @@ if (!$user) {
 	include("partials/not_found.inc.php");
 } else if (isset($_POST["complete"])) {
 	updateCompletionDate($user->getComputingId());
+	sendUserConfirmation($user);
+	sendAdminConfirmation($user);
 	include("partials/done.inc.php");
 } else {
 	 $user->complete() ? include("partials/complete.inc.php") : include("partials/incomplete.inc.php");
