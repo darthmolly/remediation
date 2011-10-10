@@ -1,7 +1,6 @@
 <table border="1" cellspacing="0" cellpadding="3">
 	<tr><th>Computing ID</th><th>Last Name</th><th>First Name</th><th>Completion date</th></tr>
 <?php
-$users = getUsers();
 
 foreach($users as $user) {
 	

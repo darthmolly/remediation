@@ -27,4 +27,18 @@ function sendAdminConfirmation($user) {
 	mail($to, $subject, $body, $headers, $extra);
 }
 
+function percentageComplete($users) {
+	$total = count($users);
+	if ($total == 0) {
+		return "";
+	}
+	$complete = 0;
+	foreach($users as $user) {
+		if ($user->complete()) {
+			$complete ++;
+		}
+	}
+	return round($complete / $total * 100);
+}
+
 ?>
