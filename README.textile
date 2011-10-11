@@ -108,3 +108,5 @@ Now that your application is up and running, you will almost certainly want to u
 6.  footer.inc.php - the footer at the bottom of the page
 7.  style.css - a stylesheet for the app.  In case you want to get fancy or something.
 8.  users.inc.php - the administrative screen
+9.  user_confirmation_email.inc.php - the email a user gets after completing the process
+10. admin_confirmation_email.inc.php - the email an administrators gets after a user has completed the process
