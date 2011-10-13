@@ -12,7 +12,7 @@ if ($doAsExcel) {
 	Header("Content-Disposition: attachment; filename=\"$filename\"");
 } else {
 	include("partials/header.inc.php"); 
-	print "<div class=\"excel\"><a href=\"" . $_SERVER['PHP_SELF'] . "?excel=true\">View in Excel</a></div>";
+	print "<div class=\"excel\"><a href=\"" . $_SERVER['PHP_SELF'] . "?excel=true\">Save in Excel file format</a></div>";
 }
 
 if (!$user->isAdministrator()) {
