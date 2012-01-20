@@ -72,6 +72,8 @@ Log into your web server, go to the appropriate place in the filesystem for stor
 	git clone git://github.com/darthmolly/remediation.git
 </pre>
 
+Alternatively, download one of the "tagged versions":https://github.com/darthmolly/remediation/tags, and then upload it to your server.
+
 h3. Application configuration
 
 At a minimum, you will need to adjust the settings in inc/configs.inc.php to include your database information.  Edit the values in the first few lines in the parts after the => symbol.  For example, change:
