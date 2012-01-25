@@ -92,11 +92,20 @@ You should now be able to access your application via a web browser.  You'll nee
 
 https://YOUR_WEB_SERVER/YOUR_SUBDIRECTORY/remediate
 
-For example
+For example:
 
 https://www.virginia.edu/mydepartment/remediate
 
 Note the "s" on https!  If NetBadge is correctly enabled, you should see NetBadge authorization occur.  If you get a message that says "We couldn't find your user record.", that means you forgot to put your own computing id into the database (doh!)
+
+If you get a blank screen, it's possible that you have a PHP error occurring, and your server is configured not to display PHP errors (this is a good thing in production, but it makes troubleshooting difficult).  To change this setting, edit the file called ".htaccess" (note that the file begins with a dot), and take out the comment symbols (#) at the beginning of the last two lines:
+
+<pre>
+	php_flag display_errors on
+	php_value error_reporting 6143
+</pre>
+
+Save, and then try reloading your page to see error messages.
 
 h3. Tweaking the verbiage or style
 
